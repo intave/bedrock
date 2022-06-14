@@ -31,7 +31,7 @@ dependencies {
 
 bukkit {
     name = "IntaveBedrock"
-    main = "de.jpx3.bedrock.BedrockSupportPlugin"
+    main = "de.intave.bedrock.BedrockSupportPlugin"
     version = "${project.version}"
     softDepend = listOf("Intave", "IntaveBootstrap", "floodgate")
 }
