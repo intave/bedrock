@@ -1,6 +1,7 @@
 package de.intave.bedrock
 
 import de.jpx3.intave.IntaveAccessor
+import de.jpx3.intave.access.IntaveAccess
 import de.jpx3.intave.access.IntaveColdException
 import de.jpx3.intave.access.player.trust.TrustFactor
 import org.bukkit.Bukkit
@@ -10,9 +11,10 @@ import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.plugin.java.JavaPlugin
 import org.geysermc.floodgate.api.FloodgateApi
+import java.lang.ref.WeakReference
 
 class BedrockSupportPlugin : JavaPlugin(), Listener {
-    private var accessReference = IntaveAccessor.weakAccess()
+    private lateinit var accessReference: WeakReference<IntaveAccess>
 
     override fun onEnable() {
         enableBedrockSupport()
@@ -23,6 +25,7 @@ class BedrockSupportPlugin : JavaPlugin(), Listener {
      * to bedrock players
      */
     private fun enableBedrockSupport() {
+        accessReference = IntaveAccessor.weakAccess()
         Bukkit.getPluginManager().registerEvents(this, this)
     }
 
