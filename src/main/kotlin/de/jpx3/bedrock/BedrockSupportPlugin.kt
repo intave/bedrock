@@ -21,7 +21,6 @@ class BedrockSupportPlugin : JavaPlugin() {
         access.setTrustFactorResolver { player, callback ->
             if (FloodgateApi.getInstance().isFloodgatePlayer(player.uniqueId)) {
                 callback.accept(TrustFactor.BYPASS)
-                return@setTrustFactorResolver
             }
         }
     }
