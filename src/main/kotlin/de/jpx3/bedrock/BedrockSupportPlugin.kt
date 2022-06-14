@@ -17,9 +17,7 @@ class BedrockSupportPlugin : JavaPlugin() {
      * the [TrustFactor.BYPASS] to bedrock players registered in the [FloodgateApi]
      */
     private fun enableBedrockSupport() {
-        val access = IntaveAccessor.weakAccess().get() ?: run {
-            throw IntaveColdException("Intave offline")
-        }
+        val access = IntaveAccessor.weakAccess().get() ?: throw IntaveColdException("Intave offline")
         access.setTrustFactorResolver { player, callback ->
             if (FloodgateApi.getInstance().isFloodgatePlayer(player.uniqueId)) {
                 callback.accept(TrustFactor.BYPASS)
