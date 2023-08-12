@@ -13,19 +13,12 @@ repositories {
     mavenCentral()
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     maven("https://repo.opencollab.dev/maven-snapshots")
-    maven {
-        name = "github"
-        url = uri("https://maven.pkg.github.com/intave/access")
-        credentials {
-            username = System.getenv("GITHUB_ACTOR")
-            password = System.getenv("GITHUB_TOKEN")
-        }
-    }
+    maven("https://repo.janmm14.de/repository/intave/")
 }
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.18-R0.1-SNAPSHOT")
-    compileOnly("de.jpx3.intave.access:intave-access:14.3.5")
+    compileOnly("de.jpx3.intave.access:intave-access:14.4.2")
     compileOnly("org.geysermc.floodgate:api:2.0-SNAPSHOT")
 }
 
